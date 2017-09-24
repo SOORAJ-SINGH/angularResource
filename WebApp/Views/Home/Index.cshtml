@@ -1,0 +1,11 @@
+﻿@{
+    ViewBag.Title = "Home Page";
+}
+
+<div ng-controller="mainCtrl as mc">
+    {{mc.hello}}
+    <form>
+        <input type="button" ng-click="mc.getValues();mc.getValues1()" value="Get Values" />
+        <input type="button" ng-click="mc.updateValue({id:1});" value="Update" />
+    </form>
+</div>
