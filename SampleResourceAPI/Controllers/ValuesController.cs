@@ -4,6 +4,7 @@ using System.Linq;
 using System.Net;
 using System.Net.Http;
 using System.Web.Http;
+using System.Web.Http.Results;
 
 namespace SampleResourceAPI.Controllers
 {
@@ -16,9 +17,11 @@ namespace SampleResourceAPI.Controllers
         }
 
         // GET api/values/5
-        public string Get(int id)
+        public IHttpActionResult Get(int id)
         {
-            return "value";
+            //return Json("value");
+            return Json(new { value = "value" } );
+            //return "value";
         }
 
         // POST api/values
@@ -27,6 +30,7 @@ namespace SampleResourceAPI.Controllers
         }
 
         // PUT api/values/5
+        [HttpPut]
         public void Put(int id, [FromBody]string value)
         {
         }
@@ -35,5 +39,10 @@ namespace SampleResourceAPI.Controllers
         public void Delete(int id)
         {
         }
+    }
+
+    public class Value
+    {
+        public string value { get; set; }
     }
 }

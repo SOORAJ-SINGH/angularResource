@@ -49,9 +49,13 @@
             //Value.update({ id: data.id},value)
         }
 
-        function deleteValue(id) {
-            console.log("delete value:",id);
-
+        function deleteValue(data) {
+            console.log("delete value:", data);
+            var value = Value.get({ id: '1' });
+            value.$promise.then(function (response) {
+                console.log('success:', response);
+                value.$delete({ id: data.id });
+            }, function (error) { console.log('error:', error); });
         }
 
     }
